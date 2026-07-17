@@ -210,10 +210,51 @@ a {
     color: var(--text-primary);
 }
 
+/* Tarjeta de currículum */
+
+.cv-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    margin-top: 80px;
+    padding: 32px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.cv-card-content {
+    max-width: 680px;
+}
+
+.cv-card-label {
+    margin-bottom: 8px;
+
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.cv-card h3 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+.cv-card-content > p:last-child {
+    margin-top: 12px;
+    color: var(--text-secondary);
+}
 
 /* Adaptación para celulares */
 
 @media (max-width: 640px) {
+
     .navigation {
         display: none;
     }
@@ -231,4 +272,15 @@ a {
         align-items: flex-start;
         flex-direction: column;
     }
+
+    .cv-card {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .cv-card .button {
+        width: 100%;
+    }
+
 }
