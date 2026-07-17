@@ -16,12 +16,25 @@
     <title>Carlos Antil | Portafolio</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- para iconos-->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2">
+
+
 </head>
 
 <body>
     <header class="site-header">
         <div class="container">
-            <a class="logo" href="#">Carlos Antil</a>
+            <a href="#" class="logo">
+                <img src="assets/images/favicon.png" alt="Logo Carlos Antil">
+                <span>Carlos Antil</span>
+            </a>
 
             <nav class="navigation" aria-label="Navegación principal">
                 <a href="#sobre-mi">Sobre mí</a>
@@ -48,7 +61,7 @@
                 </p>
 
                 <h1>
-                    Hola, soy<br>
+                    Hola hola, soy<br>
                     <span>Carlos Antil.</span>
                 </h1>
 
@@ -136,18 +149,50 @@
         </section>
     </main>
 
-    <footer id="contacto" class="site-footer">
-        <div class="container">
-            <p>© 2026 Carlos Antil</p>
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Carlos Antil</p>
 
-            <a
-                href="https://github.com/carlosantil"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
+            <div class="footer-links">
+                <a
+                    href="https://github.com/carlosantil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/carlos-antil-catripay-5042401ba/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+
+                <button class="email-button" id="emailButton" type="button">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Email</span>
+                </button>
+
+                <span class="email-address" id="emailAddress">
+                    carlosantil.ing@gmail.com
+                </span>
+            </div>
         </div>
     </footer>
+
+<script>
+
+    lucide.createIcons();
+    const emailButton = document.getElementById("emailButton");
+    const emailAddress = document.getElementById("emailAddress");
+
+    emailButton.addEventListener("click", () => {
+        emailAddress.classList.toggle("is-visible");
+    });
+</script>
 </body>
 </html>

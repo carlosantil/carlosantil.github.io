@@ -210,6 +210,29 @@ a {
     color: var(--text-primary);
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
 /* Tarjeta de currículum */
 
 .cv-card {
@@ -283,4 +306,65 @@ a {
         width: 100%;
     }
 
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+.email-button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.email-button:hover {
+    color: var(--color-primary);
+}
+
+.email-address {
+    display: none;
+    margin-left: 0.5rem;
+}
+
+.email-address.is-visible {
+    display: inline;
+}
+
+.footer-links a,
+.email-button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-links svg {
+    width: 18px;
+    height: 18px;
+}
+
+ /* logo al lado de nombre*/
+ 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
 }
