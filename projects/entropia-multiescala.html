@@ -157,7 +157,7 @@
 
                     <p>
                     En cada iteración se conservaron únicamente los autovectores asociados a los autovalores más relevantes, descartando 
-                    aquellos cuya contribución era inferior a un umbral \(\varepsilon\). Esta reducción permitió proyectar la información 
+                    aquellos cuya contribución era superior a un umbral \(\varepsilon\). Esta reducción permitió proyectar la información 
                     del grafo sobre un espacio de menor dimensión sin perder inmediatamente sus componentes estructurales más importantes.
                     </p>
 
@@ -194,25 +194,123 @@
                 </p>
 
                 <!-- Aquí irían las imágenes -->
+                </p>
+                <h3>Evolución de la estructura del grafo</h3>
+
+                <div class="results-gallery">
+
+                <div class="result-card">
+                    <h4>Escala 4</h4>
+                    <img src="../assets/images/entropia-multiescala/grafo-0.png"
+                        alt="Grafo original">
+                        <p class="entropy-value">
+                        Entropía: \(\mathcal{H}(G_4)\approx 0.0722\)
+                        </p>
+                </div>
+
+                <div class="result-card">
+                    <h4>Escala 5</h4>
+                    <img src="../assets/images/entropia-multiescala/grafo-1.png"
+                        alt="Primera reducción">
+                        <p class="entropy-value">
+                            Entropía: \(\mathcal{H}(G_5) \approx 0.0734\)
+                        </p>
+                </div>
+
+                <div class="result-card">
+                    <h4>Escala 6</h4>
+                    <img src="../assets/images/entropia-multiescala/grafo-2.png"
+                        alt="Segunda reducción">
+                        <p class="entropy-value">
+                            Entropía: \(\mathcal{H}(G_6) \approx 0.1254\)
+                        </p>
+                </div>
+
+            </div>
+                <h3>Selección espectral mediante autovalores</h3>
 
                 <p>
-                En las primeras etapas del proceso, la entropía permaneció relativamente estable, indicando que la reducción conservaba 
-                gran parte de la información estructural del grafo original. A medida que la dimensión continuó disminuyendo, comenzaron a 
-                observarse variaciones más significativas en la entropía, reflejando una pérdida progresiva de información.
+                En cada iteración se ordenaron los autovalores de mayor a menor y se aplicó un 
+                umbral \(\varepsilon\), descartando aquellos cuya contribución era cercana a cero. 
+                Este proceso permitió conservar únicamente las componentes espectrales más relevantes 
+                para construir la siguiente escala del grafo.
+                </p>
+
+                <div class="results-gallery">
+
+                <div class="result-card">
+                    <h4>Escala 4</h4>
+
+                    <img src="../assets/images/entropia-multiescala/espectro-0.png"
+                        alt="Espectro de autovalores en la escala 4">
+                </div>
+
+                <div class="result-card">
+                    <h4>Escala 5</h4>
+
+                    <img src="../assets/images/entropia-multiescala/espectro-1.png"
+                        alt="Espectro de autovalores en la escala 5">
+                </div>
+
+                <div class="result-card">
+                    <h4>Escala 6</h4>
+
+                    <img src="../assets/images/entropia-multiescala/espectro-2.png"
+                        alt="Espectro de autovalores en la escala 6">
+                </div>
+
+            </div>
+                <p>
+                Las escalas 4, 5 y 6 corresponden a una etapa avanzada del proceso de reducción, 
+                en la que el cambio en la representación del grafo se vuelve más evidente. En particular, los gráficos 
+                espectrales muestran cómo disminuye progresivamente la cantidad de componentes relevantes, conservando solo 
+                aquellas asociadas a los autovalores que están por debajo del umbral definido.
                 </p>
 
                 <p>
-                Estos resultados muestran que la combinación de teoría de grafos, análisis espectral y teoría de la información 
-                permite construir una representación multiescala capaz de simplificar redes complejas mientras preserva, hasta cierto punto, sus características 
-                estructurales más relevantes.
-            </p>
+                En este ejemplo, la entropía se mantiene relativamente estable entre las escalas 4 y 5, 
+                mientras que en la escala 6 presenta un aumento más notorio. Esto sugiere que, hasta cierto punto, 
+                la reducción conserva una estructura similar, pero que al continuar simplificando el grafo comienzan a 
+                aparecer cambios más significativos en su complejidad.
+                </p>
+
+                <p>
+                En conjunto, los resultados muestran que el análisis espectral permite construir una representación multiescala 
+                del grafo y seguir cuantitativamente los cambios en su estructura mediante la entropía. De esta forma, es posible 
+                identificar las escalas en las que la reducción aún conserva un comportamiento similar al grafo original y aquellas 
+                en las que la simplificación comienza a producir cambios más importantes.
+                </p>
             </section>
 
             <section class="project-section">
                 <h2>Repositorio</h2>
-                <p>
-                    Contenido pendiente.
-                </p>
+
+                    <p>
+                    El repositorio contiene la implementación completa del algoritmo de entropía multiescala desarrollado en Python, 
+                    incluyendo la construcción de las matrices del grafo, el análisis espectral, la reducción iterativa de la representación 
+                    y el cálculo de la entropía mediante complejidad de Lempel–Ziv (LZ76). Además, incorpora ejemplos de ejecución y 
+                    las figuras utilizadas para analizar la evolución de la estructura del grafo entre distintas escalas.
+                    </p>
+
+                    <p>
+                    Actualmente el código corresponde a la versión utilizada durante el desarrollo del proyecto. Como trabajo futuro, 
+                    se espera mejorar su organización, documentación y eficiencia computacional, además de incorporar un manejo más robusto 
+                    de algunos casos particulares que pueden aparecer durante el proceso iterativo de reducción.
+                    </p>
+
+                    <h3>Contenido del repositorio</h3>
+
+                    <ul class="repository-list">
+                        <li>Implementación completa del algoritmo.</li>
+                        <li>Notebook con experimentos y ejemplos.</li>
+                        <li>Generación de figuras utilizadas en este proyecto.</li>
+                        <li>Referencias utilizadas para implementar codificación.</li>
+                    </ul>
+                    <a class="button-primary"
+                    href="https://github.com/..."
+                    target="_blank">
+                        Ver repositorio en GitHub
+                    </a>
             </section>
         </div>
     </main>

@@ -185,6 +185,33 @@
         monospace;
 }
 
+/* ================================
+Imagenes
+================================*/
+.results-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.results-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-card h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
 
 /* ======================================
    Adaptación para celulares
@@ -207,3 +234,11 @@
         padding-block: 40px;
     }
 }
+
+@media (max-width: 600px) {
+    .results-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+
