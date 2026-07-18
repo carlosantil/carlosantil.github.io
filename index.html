@@ -15,14 +15,18 @@
 
     <title>Carlos Antil | Portafolio</title>
 
+    <!-- Estilos generales -->
     <link rel="stylesheet" href="css/style.css?v=2">
+
+    <!-- Estilos de la sección de proyectos -->
+    <link rel="stylesheet" href="css/projects.css?v=1">
 
     <!-- para iconos-->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-
+    <!-- favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2">
 
 
@@ -136,15 +140,73 @@
             </div>
         </section>
 
-        <section id="proyectos" class="section section-muted">
+        <section class="projects-section" id="proyectos">
             <div class="container">
-                <p class="section-label">Proyectos</p>
+                <div class="section-heading">
+                    <p class="section-label">Proyectos</p>
+                    <h2>Proyectos más recientes</h2>
+                    <p>
+                        Una selección de proyectos relacionados con matemáticas aplicadas,
+                        programación y análisis de datos.
+                    </p>
+                </div>
 
-                <h2>Trabajos propios.</h2>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-card-content">
+                            <p class="project-date">2023-2024</p>
 
-                <p class="section-description">
-                    Próximamente agregaré aquí proyectos propios...
-                </p>
+                            <h3>Entropía multiescala en grafos</h3>
+
+                            <p>
+                                Implementación en Python de un método para ir reduciendo la estructura
+                                de un grafos (escala) con tal de que su entropía se mantenga aproximadamente igual.
+                                Esto permite inferir que, aunque el grafo se vaya reduciendo, mantiene una estructura similar entre escalas.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>Teoría de grafos</span>
+                                <span>Entropía</span>
+                                <span>Python</span>
+                            </div>
+
+                            <a
+                                href="projects/entropia-multiescala.html"
+                                class="project-link"
+                            >
+                                Ver proyecto
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card-placeholder">
+                        <div class="project-card-content">
+                            <p class="project-date">Próximamente</p>
+                            <h3>Nuevo proyecto</h3>
+                            <p>
+                                Este espacio estará destinado a uno de los próximos
+                                proyectos del portafolio.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card-placeholder">
+                        <div class="project-card-content">
+                            <p class="project-date">Próximamente</p>
+                            <h3>Nuevo proyecto</h3>
+                            <p>
+                                Este espacio estará destinado a uno de los próximos
+                                proyectos del portafolio.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="projects-more">
+                    <a href="projects.html" class="button button-secondary">
+                        Ver más proyectos
+                    </a>
+                </div>
             </div>
         </section>
     </main>

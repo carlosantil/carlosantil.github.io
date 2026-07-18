@@ -224,13 +224,13 @@ a {
 }
 
 .footer-links a {
-    color: var(--color-text);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-    color: var(--color-primary);
+    color: var(--text-primary);
 }
 
 /* Tarjeta de currículum */
@@ -320,14 +320,15 @@ a {
 .email-button {
     background: none;
     border: none;
-    color: var(--color-text);
+    color: var(--text-secondary);
     font: inherit;
     cursor: pointer;
     padding: 0;
+    transition: color 0.2s ease;
 }
 
 .email-button:hover {
-    color: var(--color-primary);
+    color: var(--text-primary);
 }
 
 .email-address {
@@ -352,13 +353,13 @@ a {
 }
 
  /* logo al lado de nombre*/
- 
+
 .logo {
     display: flex;
     align-items: center;
     gap: 0.6rem;
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--text-primary);
     font-weight: 700;
     font-size: 1.2rem;
 }
