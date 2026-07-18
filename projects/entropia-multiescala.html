@@ -33,6 +33,22 @@
         type="image/png"
         href="../assets/images/favicon.png?v=2"
     >
+    <!-- Para usar latex -->
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+    }
+    };
+    </script>
+
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
 </head>
 
 <body>
@@ -93,36 +109,107 @@
                 </div>
             </header>
 
-            <section class="project-section">
-                <h2>Resumen</h2>
-                <p>
-                    Contenido pendiente.
-                </p>
-            </section>
 
             <section class="project-section">
                 <h2>Problema</h2>
                 <p>
-                    Contenido pendiente.
+                    Muchas redes reales, como redes sociales, biológicas o de transporte, 
+                    pueden estar compuestas por miles o incluso millones de nodos, lo que dificulta su análisis
+                    y visualización. Una alternativa consiste en reducir progresivamente su tamaño, pero este proceso solo resulta
+                    útil si la red simplificada conserva las características estructurales más relevantes de la original.
+                    <p>
+
+                    <p>
+                    Este proyecto surgió durante mi Práctica III con el objetivo de desarrollar un método que permitiera reducir
+                    la escala de un grafo manteniendo una representación equivalente de su estructura. Para evaluar qué tan similar permanecía
+                    la red luego de cada reducción, se utilizó la entropía como medida de complejidad estructural.
                 </p>
             </section>
 
             <section class="project-section">
                 <h2>Solución</h2>
+
                 <p>
-                    Contenido pendiente.
+                    Para analizar la estructura de cada grafo, primero se construyó 
+                    una representación matricial a partir de su matriz de adyacencia. 
+                    Con ella se obtuvo la matriz de transición de una caminata aleatoria,
+                    </p>
+
+                    \[
+                    P=D^{-1}W,
+                    \]
+
+                    <p>
+                    donde \(W\) corresponde a la matriz de pesos y \(D\) es la matriz diagonal de grados del grafo.
+                    </p>
+
+                    <p>
+                    Posteriormente se construyó una transformación simétrica
+                    </p>
+
+                    \[
+                    T=D^{-1/2}WD^{-1/2},
+                    \]
+
+                    <p>
+                    la cual permitió estudiar la estructura espectral del grafo mediante sus autovalores y autovectores.
+                    </p>
+
+                    <p>
+                    En cada iteración se conservaron únicamente los autovectores asociados a los autovalores más relevantes, descartando 
+                    aquellos cuya contribución era inferior a un umbral \(\varepsilon\). Esta reducción permitió proyectar la información 
+                    del grafo sobre un espacio de menor dimensión sin perder inmediatamente sus componentes estructurales más importantes.
+                    </p>
+
+                    <p>
+                    Finalmente, para cada nueva representación se calculó la entropía basada en la complejidad de Lempel–Ziv (LZ76). 
+                    Este proceso permitió evaluar cómo evolucionaba la complejidad estructural del grafo a medida que cambiaba su escala.
+                    </p>
+
+                    \[
+                    \mathcal{H}(G_0),
+                    \;
+                    \mathcal{H}(G_1),
+                    \;
+                    \mathcal{H}(G_2),
+                    \;
+                    \ldots,
+                    \;
+                    \mathcal{H}(G_n)
+                    \]
+
+                    <p>
+                    La comparación entre estas entropías permitió estudiar la conservación de la estructura del grafo durante el proceso de reducción 
+                    y dio origen al enfoque de entropía multiescala.
                 </p>
             </section>
 
             <section class="project-section">
-                <h2>Resultados y conclusiones</h2>
-                <p>
-                    Contenido pendiente.
+            <h2>Resultados y conclusión</h2>
+
+            <p>
+                El método fue evaluado sobre distintas familias de grafos, construyendo representaciones de menor 
+                dimensión mediante el análisis espectral y calculando la entropía en cada nivel de reducción. 
+                Las siguientes imágenes muestran la evolución de algunos grafos a través de las distintas escalas generadas por el algoritmo.
                 </p>
+
+                <!-- Aquí irían las imágenes -->
+
+                <p>
+                En las primeras etapas del proceso, la entropía permaneció relativamente estable, indicando que la reducción conservaba 
+                gran parte de la información estructural del grafo original. A medida que la dimensión continuó disminuyendo, comenzaron a 
+                observarse variaciones más significativas en la entropía, reflejando una pérdida progresiva de información.
+                </p>
+
+                <p>
+                Estos resultados muestran que la combinación de teoría de grafos, análisis espectral y teoría de la información 
+                permite construir una representación multiescala capaz de simplificar redes complejas mientras preserva, hasta cierto punto, sus características 
+                estructurales más relevantes.
+            </p>
             </section>
 
             <section class="project-section">
-                <h2>Enlaces</h2>
+                <h2>Repositorio</h2>
                 <p>
                     Contenido pendiente.
                 </p>
