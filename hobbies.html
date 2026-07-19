@@ -49,6 +49,14 @@
                 <span>Carlos Antil</span>
             </a>
 
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav
                 class="navigation"
                 aria-label="Navegación principal"
@@ -145,5 +153,31 @@
 
     </footer>
 
+    <!-- botón para celular -->
+ <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".navigation");
+
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("is-open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        navigation.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("is-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+    }
+</script> 
 </body>
 </html>
