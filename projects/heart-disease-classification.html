@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Proyecto sobre entropía multiescala en grafos desarrollado por Carlos Antil."
+    >
+
+    <title>Entropía multiescala en grafos | Carlos Antil</title>
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="../css/style.css?v=2">
+
+    <!-- Estilos específicos de la página -->
+    <link rel="stylesheet" href="../css/project-detail.css?v=2">
+
+    <!-- Iconos -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/favicon.png?v=2"
+    >
+    <!-- Para usar latex -->
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+    }
+    };
+    </script>
+
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img
+                    src="../assets/images/favicon.png"
+                    alt="Logo Carlos Antil"
+                >
+                <span>Carlos Antil</span>
+            </a>
+
+            <nav class="navigation" aria-label="Navegación principal">
+                <a href="../index.html#sobre-mi">Sobre mí</a>
+                <a href="../projects.html">Proyectos</a>
+
+                <a
+                    href="../assets/documents/carlos-antil-cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    CV
+                </a>
+
+                <a href="../index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="project-detail">
+        <div class="container project-detail-container">
+            <div class="back-links">
+                <a href="../index.html" class="back-link">
+                    ← Volver a página principal
+                </a>
+
+                <a href="../projects.html" class="back-link">
+                    ← Ir a proyectos
+                </a>
+            </div>
+
+            <header class="project-hero">
+                <p class="section-label">Proyecto académico</p>
+                <h1>Clasificación de enfermades cardíacas</h1>
+
+                <p class="project-introduction">
+                    Desarrollo y comparación de modelos de aprendizaje 
+                    supervisado para predecir enfermedades cardíacas a partir 
+                    de datos clínicos. El proyecto incluye análisis exploratorio, 
+                    reducción de dimensionalidad mediante PCA y evaluación de distintos 
+                    algoritmos de clasificación.
+                </p>
+
+                <div class="project-meta">
+                    
+                    <span>Machine Learning</span>
+                    <span>Clasificación</span>
+                    <span>Python</span>
+                </div>
+            </header>
+
+
+            <section class="project-section">
+                <h2>Problema</h2>
+                <p>
+                    Las enfermedades cardíacas continúan siendo una de las principales 
+                    causas de muerte a nivel mundial <sup><a href="#ref1">1</a></sup>. Contar con herramientas que permitan 
+                    estimar el riesgo de un paciente a partir de información clínica puede 
+                    apoyar el diagnóstico médico y facilitar una detección temprana.
+                    <p>
+                    En este proyecto se aborda un problema de clasificación supervisada, 
+                    cuyo objetivo es determinar si un paciente presenta o no enfermedad cardíaca 
+                    utilizando variables clínicas obtenidas durante su evaluación médica.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Solución</h2>
+
+                <p>
+                    Se desarrolló un flujo completo de Machine Learning utilizando el conjunto de datos Heart Disease Cleveland <sup><a href="#ref2">2</a></sup>, 
+                    que incluyó preprocesamiento de datos, análisis exploratorio, reducción de dimensionalidad mediante PCA y t-SNE, y 
+                    entrenamiento de distintos modelos de clasificación.
+                    <p>
+
+                    <figure class="project-figure">
+                        <img
+                            src="../assets/images/heart-disease-classification/pca-tsne.png"
+                            alt="Comparación entre las visualizaciones obtenidas mediante PCA y t-SNE para pacientes con y sin enfermedad cardíaca."
+                        >
+
+                        <figcaption>
+                            <strong>Figura 1.</strong>
+                            Comparación entre las proyecciones obtenidas mediante PCA y t-SNE.
+                            Ambas técnicas se utilizaron para explorar visualmente la estructura
+                            del conjunto de datos antes del entrenamiento de los modelos de
+                            clasificación.
+                        </figcaption>
+                    </figure>
+                    <p>
+                    <p>
+
+                    Posteriormente, se comparó el desempeño de un Dummy Classifier, Support Vector Machine (SVM) y Random Forest, 
+                    evaluando su capacidad predictiva mediante métricas de clasificación y validación sobre datos no utilizados durante 
+                    el entrenamiento.
+                </p>
+                    
+            </section>
+
+            <section class="project-section">
+            <h2>Resultados y conclusión</h2>
+
+            <p>
+                Los modelos entrenados obtuvieron un desempeño considerablemente superior al clasificador base, demostrando que las variables 
+                clínicas disponibles contienen información suficiente para predecir la presencia de enfermedad cardíaca.
+                <p>
+                Entre los modelos evaluados, Support Vector Machine (SVM) obtuvo el mejor equilibrio entre capacidad predictiva y generalización, 
+                mientras que Random Forest mostró indicios de sobreajuste al alcanzar un rendimiento prácticamente perfecto sobre los datos de entrenamiento, 
+                pero inferior sobre los datos de prueba.
+        
+                </p>
+                
+                <figure class="project-figure">
+                    <img
+                        src="../assets/images/heart-disease-classification/metricas.png"
+                        alt="Comparación del desempeño de los modelos de clasificación."
+                    >
+
+                    <figcaption>
+                        <strong>Figura 2.</strong>
+                        Comparación del desempeño de los modelos Dummy Classifier, Support Vector Machine (SVM) y Random Forest utilizando las métricas Accuracy, F1-score y Recall-score. 
+                        Los resultados muestran que SVM obtuvo el mejor desempeño general, seguido por Random Forest, mientras que el clasificador Dummy fue utilizado como línea base para evaluar 
+                        la capacidad predictiva de los modelos.
+                    </figcaption>
+                </figure>
+
+                <p>
+                <p>
+                Para complementar la comparación entre modelos, se analizó el comportamiento de Random Forest al aumentar la profundidad máxima de los árboles. 
+                Si bien el desempeño sobre los datos de entrenamiento continúa mejorando hasta alcanzar un valor prácticamente perfecto, el rendimiento sobre el 
+                conjunto de prueba se estabiliza. Esta diferencia entre ambas curvas constituye un indicio de sobreajuste y refuerza la elección de SVM como el modelo 
+                con mejor capacidad de generalización.
+                <p>
+                <figure class="project-figure">
+                    <img
+                        src="../assets/images/heart-disease-classification/overfitting.png"
+                        alt="Comparación del desempeño de los modelos de clasificación."
+                    >
+
+                    <figcaption>
+                        <strong>Figura 3.</strong>
+                    Evolución de la balanced accuracy en entrenamiento y prueba para distintos valores de \(max_{depth}\) 
+                    en Random Forest. La creciente diferencia entre ambas curvas evidencia el aumento del sobreajuste al 
+                    incrementar la complejidad del modelo.
+                    </figcaption>
+                </figure>
+                <p>
+                <p>
+                En conjunto, los resultados muestran que es posible identificar patrones relevantes en datos clínicos para 
+                apoyar la predicción de enfermedades cardíacas mediante técnicas de aprendizaje supervisado. Si bien estos 
+                modelos no reemplazan el juicio médico, representan herramientas de apoyo que pueden contribuir a una detección 
+                más temprana y a una mejor toma de decisiones cuando se utilizan junto con la evaluación clínica.
+                <p>
+                Desde una perspectiva técnica, este proyecto permitió aplicar un flujo completo de Machine Learning, abarcando desde 
+                el análisis exploratorio de datos y la reducción de dimensionalidad hasta la comparación de modelos, la evaluación de su 
+                capacidad de generalización y la interpretación crítica de sus resultados.
+            </p>
+                
+            </section>
+
+            <section class="project-section">
+                <h2>Repositorio</h2>
+
+                    <p>
+                   Este proyecto nació como parte del curso Plataformas de Machine Learning del Diplomado en Machine Learning de la Pontificia Universidad Católica de Chile (UC). 
+                   Posteriormente fue reorganizado y documentado para formar parte de este portafolio, incorporando una estructura orientada a facilitar la reproducción del análisis 
+                   y la comprensión del flujo completo de trabajo.
+                    </p>
+
+                    <h3>Contenido del repositorio</h3>
+
+                    <ul class="repository-list">
+                        <li>Dataset Heart Disease Cleveland utilizado para el entrenamiento.</li>
+                        <li>Notebook con el flujo completo de análisis y desarrollo del proyecto.</li>
+                        <li>Implementación de PCA y modelos de clasificación supervisada.</li>
+                        <li>Comparación entre Dummy Classifier, SVM y Random Forest.</li>
+                        <li>Evaluación de desempeño mediante distintas métricas de clasificación.</li>
+                    </ul>
+                    <a
+                        href="https://github.com/carlosantil/heart-disease-classification"
+                        class="github-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver repositorio en GitHub
+                    </a>
+            </section>
+
+            <h3>Referencias</h3>
+
+                <ol>
+                <li id="ref1">
+                <a href="https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)" target="_blank">
+                World Health Organization. Cardiovascular diseases (CVDs).
+                </a>
+                </li>
+
+                <li id="ref2">
+                <a href="https://archive.ics.uci.edu/dataset/45/heart+disease" target="_blank">
+                UCI Machine Learning Repository – Heart Disease Dataset.
+                </a>
+                </li>
+                </ol>
+        </div>
+    </main>
+<footer class="footer" id="contacto">
+    <div class="container footer-content">
+        <p>&copy; 2026 Carlos Antil</p>
+
+        <div class="footer-links">
+            <!-- aquí los mismos enlaces que tienes en index -->
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
