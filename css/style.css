@@ -300,6 +300,52 @@ a {
 }
 
 
+/* Arreglo boton de proyecto */
+.back-links {
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    width: fit-content;
+    padding: 0.7rem 1rem;
+
+    color: #c8d2f0;
+    background: #11151d;
+    border: 1px solid #2a3040;
+    border-radius: 999px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.back-link:visited {
+    color: #c8d2f0;
+}
+
+.back-link:hover {
+    color: #ffffff;
+    background: #171c27;
+    border-color: #778cff;
+    transform: translateX(-3px);
+}
+
+.back-link:focus-visible {
+    outline: 2px solid #778cff;
+    outline-offset: 3px;
+}
+
 /* Adaptación para celulares */
 
 @media (max-width: 640px) {
