@@ -112,7 +112,14 @@
             <section class="project-section">
                 <h2>Problema</h2>
                 <p>
-                    Proximamente...
+                    El cáncer de mama es uno de los tipos de cáncer más frecuentes a nivel mundial y una de las 
+                    principales causas de muerte por cáncer en mujeres <sup><a href="#ref1">1</a></sup>. La detección 
+                    temprana desempeña un papel fundamental para mejorar el pronóstico y aumentar las probabilidades de 
+                    un tratamiento exitoso.
+                    <p>
+                    En este proyecto se aborda un problema de clasificación supervisada cuyo objetivo es determinar si 
+                    un tumor mamario corresponde a un tumor0 benigno o maligno a partir de características extraídas de 
+                    imágenes digitalizadas de biopsias por aspiración con aguja fina (Fine Needle Aspirate, FNA).
                 </p>
             </section>
 
@@ -145,14 +152,15 @@
                     <h3>Contenido del repositorio</h3>
 
                     <ul class="repository-list">
-                        <li>Dataset Heart Disease Cleveland utilizado para el entrenamiento.</li>
-                        <li>Notebook con el flujo completo de análisis y desarrollo del proyecto.</li>
-                        <li>Implementación de PCA y modelos de clasificación supervisada.</li>
-                        <li>Comparación entre Dummy Classifier, SVM y Random Forest.</li>
-                        <li>Evaluación de desempeño mediante distintas métricas de clasificación.</li>
+                        <li>Dataset Breast Cancer Wisconsin utilizado para el entrenamiento.</li>
+                        <li>Notebook con el desarrollo completo del modelo.</li>
+                        <li>Red neuronal implementada con TensorFlow/Keras.</li>
+                        <li>Aplicación web desarrollada con Streamlit.</li>
+                        <li>Modelo entrenado (model.keras) y escalador (scaler.joblib).</li>
+                        <li>Configuración reproducible mediante Poetry y Docker.</li>
                     </ul>
                     <a
-                        href="https://github.com/carlosantil/heart-disease-classification"
+                        href="https://github.com/carlosantil/breast-cancer-classification-app"
                         class="github-button"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -165,14 +173,14 @@
 
                 <ol>
                 <li id="ref1">
-                <a href="https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)" target="_blank">
-                World Health Organization. Cardiovascular diseases (CVDs).
+                <a href="https://www.who.int/news-room/fact-sheets/detail/breast-cancer" target="_blank">
+                World Health Organization. Breast cancer.
                 </a>
                 </li>
 
                 <li id="ref2">
-                <a href="https://archive.ics.uci.edu/dataset/45/heart+disease" target="_blank">
-                UCI Machine Learning Repository – Heart Disease Dataset.
+                <a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic" target="_blank">
+                UCI Machine Learning Repository – Breast Cancer Wisconsin (Diagnostic) Dataset.
                 </a>
                 </li>
                 </ol>
