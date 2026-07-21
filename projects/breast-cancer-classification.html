@@ -118,7 +118,7 @@
                     un tratamiento exitoso.
                     <p>
                     En este proyecto se aborda un problema de clasificación supervisada cuyo objetivo es determinar si 
-                    un tumor mamario corresponde a un tumor0 benigno o maligno a partir de características extraídas de 
+                    un tumor mamario corresponde a un tumor benigno o maligno a partir de características extraídas de 
                     imágenes digitalizadas de biopsias por aspiración con aguja fina (Fine Needle Aspirate, FNA).
                 </p>
             </section>
@@ -127,16 +127,280 @@
                 <h2>Solución</h2>
 
                 <p>
-                    Proximamente...
+                    Se desarrolló un flujo completo de aprendizaje profundo utilizando el conjunto de datos Breast Cancer 
+                    Wisconsin<sup><a href="#ref1">2</a></sup>, incluyendo preprocesamiento de los datos, entrenamiento de 
+                    una red neuronal implementada con TensorFlow/Keras y evaluación de su desempeño sobre datos no utilizados 
+                    durante el entrenamiento.
+                    <p>
+
+                    Posteriormente, el modelo entrenado fue integrado en una aplicación web interactiva desarrollada con Streamlit, 
+                    permitiendo realizar predicciones en tiempo real a partir de ocho características clínicas seleccionadas.
                 </p>
-                    
+                <p>
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>mean radius</strong></td>
+                            <td>Tamaño promedio de los núcleos celulares observados en la muestra.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean perimeter</strong></td>
+                            <td>Longitud promedio del contorno de los núcleos celulares.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean area</strong></td>
+                            <td>Área promedio ocupada por los núcleos celulares.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean texture</strong></td>
+                            <td>Variación en la intensidad de los píxeles de la imagen microscópica.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean smoothness</strong></td>
+                            <td>Qué tan lisos o regulares son los bordes de los núcleos celulares.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean symmetry</strong></td>
+                            <td>Qué tan simétrica es la forma de los núcleos celulares.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean compactness</strong></td>
+                            <td>Grado de compacidad de los núcleos celulares.</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>mean concavity</strong></td>
+                            <td>Presencia de hendiduras o irregularidades en el borde de los núcleos celulares.</td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+
+                <p class="figure-caption">
+                    <strong>Tabla 1.</strong> Variables utilizadas como entrada de la red neuronal para la clasificación de tumores mamarios.
+                </p>
+                 <p>
+                Aunque el conjunto de datos original contiene 30 características, para esta aplicación se seleccionaron ocho variables 
+                representativas con el objetivo de simplificar la interacción del usuario, manteniendo un buen desempeño del modelo y 
+                una interfaz fácil de utilizar.
+                <p>
+
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Capa</th>
+                            <th>Tipo</th>
+                            <th>Salida</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Entrada</td>
+                            <td>8 variables clínicas</td>
+                            <td>8 neuronas</td>
+                        </tr>
+
+                        <tr>
+                            <td>Capa oculta 1</td>
+                            <td>Dense (ReLU)</td>
+                            <td>32 neuronas</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regularización</td>
+                            <td>Dropout</td>
+                            <td>30%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Capa oculta 2</td>
+                            <td>Dense (ReLU)</td>
+                            <td>16 neuronas</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regularización</td>
+                            <td>Dropout</td>
+                            <td>30%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Salida</td>
+                            <td>Dense (Sigmoid)</td>
+                            <td>1 neurona</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="figure-caption">
+                <strong>Tabla 2.</strong> Arquitectura de la red neuronal utilizada para la clasificación de tumores mamarios.
+                </p>
+                <p>
+                <div class="app-gallery">
+
+                    <div class="app-card">
+                        <h3>1. Inicio</h3>
+                        <img
+                            src="../assets/images/breast-cancer-classification/im1.png"
+                            alt="Pantalla principal de la aplicación."
+                        >
+
+                        <p>
+            
+                            La aplicación presenta su propósito y explica brevemente el
+                            funcionamiento del modelo de clasificación.
+                        </p>
+                    </div>
+
+                    <div class="app-card">
+                        <h3>2. Ingreso de datos</h3>
+
+                        <img
+                            src="../assets/images/breast-cancer-classification/im2.png"
+                            alt="Formulario para ingresar las variables."
+                        >
+
+                        <p>
+                            El usuario ingresa las ocho variables clínicas utilizadas como
+                            entrada de la red neuronal.
+                        </p>
+                    </div>
+
+                    <div class="app-card">
+                        <h3>3. Predicción</h3>
+                         <p>
+                         <p>
+                        <img
+                            src="../assets/images/breast-cancer-classification/im3.png"
+                            alt="Resultado de la predicción."
+                        >
+
+                        <p>
+                            El modelo estima si la muestra corresponde a un tumor benigno o
+                            maligno e informa la probabilidad asociada.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="figure-caption">
+                    <strong>Figura 1.</strong>
+                    Flujo de uso de la aplicación desarrollada con Streamlit, desde la pantalla
+                    inicial hasta la obtención de una predicción.
+                </p>
             </section>
 
             <section class="project-section">
             <h2>Resultados y conclusión</h2>
 
             <p>
-                Proximamente...
+                El modelo obtuvo un alto desempeño en la clasificación de tumores benignos y malignos, demostrando que las características 
+                clínicas seleccionadas contienen información suficiente para apoyar este problema de clasificación.
+                <p>
+                <figure class="project-figure">
+                    <img
+                        src="../assets/images/breast-cancer-classification/im4.png"
+                        alt="Evolución de la precisión durante el entrenamiento y la validación de la red neuronal."
+                    >
+
+                    <figcaption>
+                        <strong>Figura 2.</strong>
+                        Evolución de la precisión durante el entrenamiento de la red neuronal. La cercanía entre las curvas de entrenamiento y validación
+                        indica que el modelo logra una buena capacidad de generalización, sin evidencias relevantes de sobreajuste durante el entrenamiento.
+                    </figcaption>
+                </figure>
+
+                <p>
+                <p>
+                    Como puede observarse, la precisión aumenta rápidamente durante las primeras
+                    épocas y luego se estabiliza alrededor del 95 %. Además, la similitud entre
+                    ambas curvas sugiere que el modelo mantiene un desempeño consistente tanto
+                    sobre los datos de entrenamiento como sobre los datos de validación.
+                </p>
+
+                <p>
+                    Para complementar este análisis, se evaluó el desempeño del modelo sobre el
+                    conjunto de prueba mediante distintas métricas de clasificación.
+                </p>
+
+                <table class="project-table metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                      
+                        <tr>
+                            <td><strong>Accuracy</strong></td>
+                            <td>95,6 %</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Recall</strong></td>
+                            <td>90,3 %</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>F1-score</strong></td>
+                            <td>92,9 %</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Loss</strong></td>
+                            <td>0,203</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="figure-caption">
+                    <strong>Tabla 3.</strong>
+                    Métricas de desempeño obtenidas por la red neuronal sobre el conjunto de prueba.
+                </p>
+
+                <p>
+                    Los resultados muestran que el modelo mantiene un buen equilibrio entre la
+                    precisión de sus predicciones y su capacidad para identificar correctamente
+                    las muestras correspondientes a la clase positiva (tumores benignos). En
+                    particular, la precisión de 95,6 % indica que la gran mayoría de las muestras
+                    clasificadas como benignas efectivamente pertenecían a esa categoría. Por su
+                    parte, el recall de 90,3 % muestra que el modelo logró identificar
+                    correctamente cerca del 90 % de los tumores benignos presentes en el conjunto
+                    de prueba.
+                </p>
+
+                <p>
+                    En conjunto, este proyecto permitió desarrollar un flujo completo de Deep
+                    Learning, desde el preprocesamiento de los datos y el entrenamiento de una
+                    red neuronal hasta la evaluación, serialización y despliegue del modelo en
+                    una aplicación web interactiva.
+                </p>
+
+                <p>
+                    Si bien esta aplicación tiene un propósito exclusivamente educativo y no
+                    constituye una herramienta de diagnóstico médico, el proyecto demuestra el
+                    potencial del aprendizaje profundo para apoyar tareas de clasificación en el
+                    ámbito de la salud. Modelos como el desarrollado pueden complementar la
+                    labor de los profesionales de la salud, proporcionando una segunda opinión
+                    basada en datos y contribuyendo a procesos de evaluación clínica cuando se
+                    utilizan junto con la evidencia médica y el juicio profesional.
+                </p>
                 
             </section>
 
