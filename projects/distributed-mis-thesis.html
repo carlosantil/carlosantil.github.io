@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Proyecto sobre entropía multiescala en grafos desarrollado por Carlos Antil."
+    >
+
+    <title>Entropía multiescala en grafos | Carlos Antil</title>
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="../css/style.css?v=2">
+
+    <!-- Estilos específicos de la página -->
+    <link rel="stylesheet" href="../css/project-detail.css?v=2">
+
+    <!-- Iconos -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/favicon.png?v=2"
+    >
+    <!-- Para usar latex -->
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+    }
+    };
+    </script>
+
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img
+                    src="../assets/images/favicon.png"
+                    alt="Logo Carlos Antil"
+                >
+                <span>Carlos Antil</span>
+            </a>
+
+            <nav class="navigation" aria-label="Navegación principal">
+                <a href="../index.html#sobre-mi">Sobre mí</a>
+                <a href="../projects.html">Proyectos</a>
+
+                <a
+                    href="../assets/documents/carlos-antil-cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    CV
+                </a>
+
+                <a href="../index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="project-detail">
+        <div class="container project-detail-container">
+            <div class="back-links">
+                <a href="../index.html" class="back-link">
+                    ← Volver a página principal
+                </a>
+
+                <a href="../projects.html" class="back-link">
+                    ← Ir a proyectos
+                </a>
+            </div>
+
+            <header class="project-hero">
+                <p class="section-label">Proyecto académico</p>
+                <h1>Conjuntos independientes maximales (MIS) en grafos dirigidos</h1>
+                    
+                <p class="project-introduction"></p>
+                     Proyecto de investigación en computación distribuida y teoría de   
+                     grafos que propone nuevos modelos 
+                     de comunicación y protocolos para calcular conjuntos 
+                     independientes maximales, extendiendo conceptos 
+                     del problema clásico de consenso.
+                </p>
+                <div class="project-meta">
+                    <span>Computación distribuida</span>
+                    <span>Teoría de grafos</span>
+                    <span>Tesis</span>
+                </div>
+            </header>
+
+
+            <section class="project-section">
+                <h2>Problema</h2>
+                 <p>
+                    En computación distribuida, múltiples procesadores deben tomar decisiones utilizando 
+                    únicamente la información que reciben de sus vecinos, sin la existencia de un 
+                    coordinador central. Uno de los problemas fundamentales en este contexto consiste 
+                    en calcular un <strong>Conjunto Independiente Maximal (MIS)</strong>, estructura 
+                    ampliamente utilizada como base para algoritmos de planificación, asignación de 
+                    recursos y organización de redes.
+                    </p>
+                    <p>
+                    En términos de teoría de grafos, se dice que un conjunto es independiente si ninguno de 
+                    sus elementos (en este caso, nodos) está conectado
+                    entre sí en el grafo, y es maximal si no es posible agregar otro nodo sin perder dicha
+                    propiedad.
+                    </p>
+
+                    <p>
+                    Otro problema clásico en esta área es el <strong>problema de consenso</strong>, 
+                    cuyo objetivo es que todos los procesadores alcancen un mismo acuerdo o valor 
+                    utilizando únicamente información local. Si bien ambos problemas persiguen objetivos 
+                    distintos, comparten características relacionadas con la comunicación distribuida. 
+                    Esta investigación surge a partir de la siguiente pregunta: 
+                    <strong>¿Es posible adaptar el enfoque utilizado en consenso para calcular un conjunto 
+                        independiente maximal?</strong>
+                    </p>
+
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Conjunto Independiente Maximal (MIS)</th>
+                                <th>Problema de Consenso</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><strong>Objetivo</strong></td>
+                                <td>
+                                    Seleccionar un conjunto de nodos independientes y maximal dentro del grafo.
+                                </td>
+                                <td>
+                                    Lograr que todos los nodos alcancen un mismo acuerdo o decisión.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Resultado esperado</strong></td>
+                                <td>
+                                    Un subconjunto de nodos que cumple las propiedades de independencia y maximalidad.
+                                </td>
+                                <td>
+                                    Un único valor compartido por todos los nodos del sistema.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Comunicación</strong></td>
+                                <td>
+                                    Cada nodo intercambia información únicamente con sus vecinos.
+                                </td>
+                                <td>
+                                    Cada nodo intercambia información únicamente con sus vecinos.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Decisiones</strong></td>
+                                <td>
+                                    Los nodos pueden tomar decisiones distintas según su posición en el grafo.
+                                </td>
+                                <td>
+                                    Todos los nodos deben tomar exactamente la misma decisión.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Relación en esta investigación</strong></td>
+                                <td>
+                                    Problema distribuido que se busca resolver.
+                                </td>
+                                <td>
+                                    Sirve como base para proponer nuevos modelos de comunicación orientados al cálculo de un MIS.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="figure-caption">
+                        <strong>Tabla 1.</strong> Comparación, a grandes rasgos, entre el problema del Conjunto Independiente Maximal (MIS) y el problema clásico de consenso distribuido. 
+        
+                    </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Metodología</h2>
+
+                  <p>
+                        Para abordar este problema, la investigación representa el sistema mediante
+                        dos estructuras: un grafo no dirigido, que describe las relaciones entre los
+                        nodos, y un grafo dirigido, que determina cómo circula la información entre
+                        ellos.
+                    </p>
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Descripción general</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><strong>Grafo no dirigido (G)</strong></td>
+                                <td>
+                                    Representa las relaciones de vecindad entre los nodos del sistema.
+                                    Sobre este grafo se busca calcular un Conjunto Independiente Maximal (MIS).
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Grafo dirigido (D)</strong></td>
+                                <td>
+                                    Modela la dirección en que fluye la información entre los nodos
+                                    durante la ejecución del algoritmo distribuido.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Nodo</strong></td>
+                                <td>
+                                    Corresponde a un procesador o agente que participa en la ejecución
+                                    del algoritmo distribuido.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Arista no dirigida</strong></td>
+                                <td>
+                                    Indica que dos nodos son vecinos dentro del problema del
+                                    Conjunto Independiente Maximal.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Arco dirigido</strong></td>
+                                <td>
+                                    Representa que un nodo puede enviar información a otro durante
+                                    las rondas de comunicación.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="figure-caption">
+                        <strong>Tabla 3.</strong> Componentes principales del modelo distribuido utilizado en la investigación.
+                    </p>
+                    <p>
+                        A partir de la estructura general presentada anteriormente, la investigación
+                        propone dos modelos de comunicación: el <strong>Modelo Fuertemente Independiente (MFI)</strong>
+                        y el <strong>Modelo Débilmente Independiente (MDI)</strong>. Ambos buscan resolver el
+                        problema del Conjunto Independiente Maximal (MIS), pero difieren en la información
+                        disponible para cada nodo y en las restricciones impuestas sobre la estructura de
+                        comunicación.
+                    </p>
+                    <p>
+                    <!-- Tabla MFI -->
+                    <h3>Modelo Fuertemente Independiente (MFI)</h3>
+
+                    <p>
+                        En el Modelo Fuertemente Independiente (MFI) se consideran dos grafos definidos
+                        sobre el mismo conjunto de nodos <strong>V</strong>. El grafo no dirigido
+                        <strong>G = (V, E)</strong> representa las relaciones de vecindad y corresponde
+                        al grafo sobre el cual se busca calcular un Conjunto Independiente Maximal (MIS).
+                        Por otra parte, el grafo dirigido <strong>D = (V, F)</strong> representa la
+                        estructura de comunicación e indica en qué dirección puede transmitirse la
+                        información entre los nodos.
+                    </p>
+
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Descripción en el modelo MFI</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><strong>Grafo del problema</strong></td>
+                                <td>
+                                    El grafo no dirigido <strong>G = (V, E)</strong> modela las relaciones
+                                    de vecindad entre los nodos. Sobre este grafo se busca calcular un
+                                    Conjunto Independiente Maximal.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Grafo de comunicación</strong></td>
+                                <td>
+                                    El grafo dirigido <strong>D = (V, F)</strong> determina cómo circula
+                                    la información. Un arco dirigido indica que un nodo puede enviar
+                                    información a otro.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Estado de salida</strong></td>
+                                <td>
+                                    En cada ronda, cada nodo mantiene un estado binario que indica si
+                                    pertenece o no al conjunto independiente maximal calculado sobre
+                                    <strong>G</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Información inicial</strong></td>
+                                <td>
+                                    Antes de comenzar la ejecución, cada nodo conoce su vecindario en el
+                                    grafo no dirigido <strong>G</strong> y conoce completamente la
+                                    estructura del grafo dirigido de comunicación <strong>D</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Comunicación por rondas</strong></td>
+                                <td>
+                                    En cada ronda, cada nodo envía toda su información local a sus vecinos
+                                    salientes en <strong>D</strong>, es decir, a los nodos hacia los cuales
+                                    posee un arco dirigido.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Decisión de los nodos</strong></td>
+                                <td>
+                                    Cada nodo utiliza la información recibida a través de
+                                    <strong>D</strong> para decidir si pertenece al MIS del grafo no
+                                    dirigido <strong>G</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Término del procedimiento</strong></td>
+                                <td>
+                                    El algoritmo finaliza en un número finito de rondas, cuando todos los
+                                    nodos han fijado su estado de salida y dejan de recibir información
+                                    nueva.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="table-caption">
+                        <strong>Tabla 2.</strong> Características principales del Modelo Fuertemente
+                        Independiente (MFI) y función de los grafos G y D.
+                    </p>
+              
+
+                    <!-- Tabla MDI -->
+
+                    <p>
+                        Para cada modelo se obtienen condiciones suficientes sobre la estructura del
+                        grafo de comunicación que garantizan el cálculo correcto de un conjunto
+                        independiente maximal. A partir de estas condiciones se diseñan algoritmos
+                        distribuidos específicos para cada modelo, respetando las restricciones de
+                        comunicación definidas en cada caso.
+                    </p>
+
+                    <p>
+                        Finalmente, se realiza una comparación formal entre los modelos propuestos y
+                        el modelo clásico de consenso, identificando las similitudes y diferencias en
+                        sus estructuras de comunicación y en las condiciones necesarias para resolver
+                        cada problema distribuido.
+                    </p>
+            </section>
+
+            <section class="project-section">
+            <h2>Resultados y conclusión</h2>
+
+            Próximamente...
+                
+            </section>
+
+            <section class="project-section">
+                <h2>Repositorio</h2>
+
+                    <p>
+                   Próximamente...
+                    </p>
+
+                    <h3>Contenido del repositorio</h3>
+
+                    <ul class="repository-list">
+                        <li>--</li>
+                        
+                    </ul>
+                    <a
+                        href="--"
+                        class="github-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver repositorio en GitHub
+                    </a>
+            </section>
+
+            <h3>Referencias</h3>
+
+                <ol>
+                <li id="ref1">
+                <a href="--" target="_blank">
+               ref1.
+                </a>
+                </li>
+
+                <li id="ref2">
+                <a href="--"arget="_blank">
+               ref2.
+                </a>
+                </li>
+                </ol>
+        </div>
+    </main>
+<footer class="footer" id="contacto">
+    <div class="container footer-content">
+        <p>&copy; 2026 Carlos Antil</p>
+
+        <div class="footer-links">
+            <!-- aquí los mismos enlaces que tienes en index -->
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
