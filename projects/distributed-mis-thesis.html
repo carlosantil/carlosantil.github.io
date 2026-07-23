@@ -120,6 +120,7 @@
                     ampliamente utilizada como base para algoritmos de planificación, asignación de 
                     recursos y organización de redes.
                     </p>
+                    
                     <p>
                     En términos de teoría de grafos, se dice que un conjunto es independiente si ninguno de 
                     sus elementos (en este caso, nodos) está conectado
@@ -127,10 +128,25 @@
                     propiedad.
                     </p>
 
+                    <figure class="project-figure">
+                        <img
+                            src="../assets/images/thesis/mis.png"
+                            alt="Ejemplo de un Conjunto Independiente Maximal"
+                            style="display: block; margin: 0 auto; max-width: 450px; width: 100%; height: auto;"
+                        >
+
+                        <p class="figure-caption">
+                            <strong>Figura 1.</strong>
+                            Ejemplo de un conjunto independiente maximal (MIS). Los nodos destacados
+                            forman un conjunto independiente y no es posible agregar otro nodo sin
+                            perder esta propiedad.
+                        
+                    </figure>
+                    <p>
                     <p>
                     Otro problema clásico en esta área es el <strong>problema de consenso</strong>, 
                     cuyo objetivo es que todos los procesadores alcancen un mismo acuerdo o valor 
-                    utilizando únicamente información local. Si bien ambos problemas persiguen objetivos 
+                    utilizando únicamente su información local. Si bien ambos problemas persiguen objetivos 
                     distintos, comparten características relacionadas con la comunicación distribuida. 
                     Esta investigación surge a partir de la siguiente pregunta: 
                     <strong>¿Es posible adaptar el enfoque utilizado en consenso para calcular un conjunto 
@@ -209,11 +225,12 @@
                 <h2>Metodología</h2>
 
                   <p>
-                        Para abordar este problema, la investigación representa el sistema mediante
-                        dos estructuras: un grafo no dirigido, que describe las relaciones entre los
-                        nodos, y un grafo dirigido, que determina cómo circula la información entre
-                        ellos.
-                    </p>
+                    La investigación considera dos grafos definidos sobre el mismo conjunto de
+                    nodos. El grafo no dirigido <strong>G = (V, E)</strong> representa el problema en el cual
+                    sus aristas determinan qué nodos son vecinos y sobre él se busca calcular un
+                    MIS En cambio, el grafo dirigido <strong>D = (V, F)</strong> representa la comunicación en el cual 
+                    sus arcos determinan qué nodos pueden enviar información a otros durante la ejecución del algoritmo.
+                </p>
                     <table class="project-table">
                         <thead>
                             <tr>
@@ -364,21 +381,128 @@
                         </tbody>
                     </table>
 
-                    <p class="table-caption">
-                        <strong>Tabla 2.</strong> Características principales del Modelo Fuertemente
-                        Independiente (MFI) y función de los grafos G y D.
+                    <p class="figure-caption">
+                        <strong>Tabla 3.</strong> Características principales del Modelo Fuertemente
+                        Independiente (MFI).
                     </p>
               
-
-                    <!-- Tabla MDI -->
+                    <p>
+                      <!-- Tabla MDI -->
+                    <h3>Modelo Débilmente Independiente (MDI)</h3>
 
                     <p>
-                        Para cada modelo se obtienen condiciones suficientes sobre la estructura del
-                        grafo de comunicación que garantizan el cálculo correcto de un conjunto
-                        independiente maximal. A partir de estas condiciones se diseñan algoritmos
-                        distribuidos específicos para cada modelo, respetando las restricciones de
-                        comunicación definidas en cada caso.
+                        En el Modelo Débilmente Independiente (MDI) también se consideran dos grafos
+                        definidos sobre el mismo conjunto de nodos <strong>V</strong>. El grafo no dirigido
+                        <strong>G = (V, E)</strong> representa las relaciones de vecindad y corresponde
+                        al grafo sobre el cual se busca calcular un Conjunto Independiente Maximal (MIS).
+                        Por otra parte, el grafo dirigido <strong>D = (V, F)</strong> representa la
+                        estructura de comunicación y determina cómo se transmite la información entre
+                        los nodos.
                     </p>
+
+                    <p>
+                        A diferencia del modelo MFI, en el modelo MDI cada nodo no conoce inicialmente
+                        la estructura completa del grafo dirigido <strong>D</strong>. Por ello, sus
+                        decisiones deben basarse principalmente en la información local que recibe
+                        durante las rondas de comunicación.
+                    </p>
+                   
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Descripción en el modelo MDI</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><strong>Grafo del problema</strong></td>
+                                <td>
+                                    El grafo no dirigido <strong>G = (V, E)</strong> modela las relaciones
+                                    de vecindad entre los nodos. Sobre este grafo se busca calcular un
+                                    Conjunto Independiente Maximal.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Grafo de comunicación</strong></td>
+                                <td>
+                                    El grafo dirigido <strong>D = (V, F)</strong> determina cómo circula
+                                    la información. Un arco dirigido indica que un nodo puede enviar
+                                    información a otro.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Estado de salida</strong></td>
+                                <td>
+                                    En cada ronda, cada nodo mantiene un estado binario que indica si
+                                    pertenece o no al conjunto independiente maximal calculado sobre
+                                    <strong>G</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Información inicial</strong></td>
+                                <td>
+                                    Antes de comenzar la ejecución, cada nodo conoce su vecindario en el
+                                    grafo no dirigido <strong>G</strong>, pero no conoce
+                                    la estructura del grafo dirigido de comunicación <strong>D</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Comunicación por rondas</strong></td>
+                                <td>
+                                    En cada ronda, cada nodo envía su información local a sus vecinos
+                                    salientes en <strong>D</strong> y recibe información desde sus vecinos
+                                    entrantes.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Conocimiento durante la ejecución</strong></td>
+                                <td>
+                                    Cada nodo construye su conocimiento a partir de la información recibida
+                                    localmente durante las rondas, sin disponer desde el inicio de una visión
+                                    completa de la estructura de comunicación.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Decisión de los nodos</strong></td>
+                                <td>
+                                    Cada nodo utiliza la información que logra reunir a través de
+                                    <strong>D</strong> para decidir si pertenece al MIS del grafo no
+                                    dirigido <strong>G</strong>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Término del procedimiento</strong></td>
+                                <td>
+                                    El algoritmo finaliza en un número finito de rondas, cuando todos los
+                                    nodos han fijado su estado de salida y dejan de recibir información
+                                    nueva.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="figure-caption">
+                        <strong>Tabla 4.</strong> Características principales del Modelo Débilmente
+                        Independiente (MDI).
+                    </p>
+
+                  <p>
+                    En ambos modelos, el MIS se calcula sobre el grafo
+                    no dirigido <strong>G</strong>, mientras que el intercambio de información se
+                    realiza mediante el grafo dirigido <strong>D</strong>. La diferencia principal
+                    radica en el conocimiento inicial disponible para los nodos: en el modelo MFI
+                    conocen completamente la estructura de comunicación, mientras que en el modelo
+                    MDI deben tomar decisiones a partir de información principalmente local.
+                </p>
 
                     <p>
                         Finalmente, se realiza una comparación formal entre los modelos propuestos y
@@ -391,25 +515,108 @@
             <section class="project-section">
             <h2>Resultados y conclusión</h2>
 
-            Próximamente...
+          <p>
+            La investigación permitió caracterizar las estructuras de comunicación que
+            garantizan el cálculo distribuido de un conjunto independiente maximal (MIS)
+            bajo los modelos MFI y MDI. A partir de estas caracterizaciones se obtuvieron
+            condiciones suficientes para demostrar la correctitud de los algoritmos
+            propuestos y establecer su relación con el problema clásico de consenso.
+        </p>
+        <table class="project-table">
+            <thead>
+                <tr>
+                    <th>Resultado</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><strong>Caracterización de MFI</strong></td>
+                    <td>
+                        Se obtuvieron condiciones suficientes sobre el grafo dirigido de
+                        comunicación para garantizar el cálculo distribuido de un MIS.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Caracterización de MDI</strong></td>
+                    <td>
+                        Se identificaron las restricciones adicionales necesarias cuando los
+                        nodos no conocen completamente la estructura de comunicación.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Diseño de algoritmos</strong></td>
+                    <td>
+                        Se desarrollaron algoritmos distribuidos específicos para ambos
+                        modelos, demostrando su correctitud bajo las condiciones propuestas.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Relación con consenso</strong></td>
+                    <td>
+                        Se estableció una comparación formal entre los nuevos modelos y el
+                        problema clásico de consenso, identificando similitudes y diferencias
+                        en sus estructuras de comunicación.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="figure-caption">
+            <strong>Tabla 5.</strong> Principales resultados obtenidos durante la investigación.
+        </p>
+            <p>
+                El principal aporte de esta investigación consiste en proponer dos nuevos
+                modelos de comunicación para el cálculo distribuido de conjuntos independientes
+                maximales (MFI y MDI) y caracterizar formalmente la relación que estos mantienen con el
+                modelo clásico de consenso (MC).
+            </p>
+            <figure class="project-figure">
+                <img
+                    src="../assets/images/thesis/conjuntos.png"
+                    alt="Relación entre los modelos MFI, MDI y MC"
+                    style="display: block; margin: 0 auto; max-width: 450px; width: 100%; height: auto;"
+                >
+
+                 <p class="figure-caption">
+                    <strong>Figura 2.</strong>
+                    Relación entre los modelos de comunicación MFI, MDI y el modelo clásico de consenso (MC).
                 
+            </figure>
+                <p>
+                <p>
+                La figura resume uno de los principales resultados teóricos obtenidos durante
+                la investigación. El modelo MDI constituye un subconjunto del modelo MFI,
+                mientras que el modelo clásico de consenso (MC) presenta una intersección con
+                MDI, pero no está completamente contenido en MFI ni viceversa. Esta relación
+                muestra que los modelos propuestos amplían el estudio de la comunicación
+                distribuida más allá del marco tradicional del consenso.
+            </p>
             </section>
 
             <section class="project-section">
                 <h2>Repositorio</h2>
 
                     <p>
-                   Próximamente...
+                        Esta página presenta una visión general de la investigación, destacando su
+                        motivación, los modelos propuestos y los principales resultados descritos de manera más general
+                        para una comprensión a grandes rasgos de lo realizado.
                     </p>
 
-                    <h3>Contenido del repositorio</h3>
+                    <p>
+                        Para una descripción completa del problema, el desarrollo matemático de los
+                        modelos, las demostraciones teóricas, los algoritmos distribuidos propuestos y referencias utilizadas,
+                        se puede consultar la memoria de tesis disponible en el repositorio, junto con
+                        la presentación utilizada durante la defensa de magíster.
+                    </p>
 
-                    <ul class="repository-list">
-                        <li>--</li>
-                        
-                    </ul>
+    
                     <a
-                        href="--"
+                        href="https://github.com/carlosantil/distributed-mis-thesis"
                         class="github-button"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -418,21 +625,6 @@
                     </a>
             </section>
 
-            <h3>Referencias</h3>
-
-                <ol>
-                <li id="ref1">
-                <a href="--" target="_blank">
-               ref1.
-                </a>
-                </li>
-
-                <li id="ref2">
-                <a href="--"arget="_blank">
-               ref2.
-                </a>
-                </li>
-                </ol>
         </div>
     </main>
 <footer class="footer" id="contacto">
