@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Proyecto sobre entropía multiescala en grafos desarrollado por Carlos Antil."
+    >
+
+    <title>Entropía multiescala en grafos | Carlos Antil</title>
+
+    <!-- Estilos generales -->
+    <link rel="stylesheet" href="../css/style.css?v=2">
+
+    <!-- Estilos específicos de la página -->
+    <link rel="stylesheet" href="../css/project-detail.css?v=2">
+
+    <!-- Iconos -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/favicon.png?v=2"
+    >
+    <!-- Para usar latex -->
+    <script>
+    window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+    }
+    };
+    </script>
+
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img
+                    src="../assets/images/favicon.png"
+                    alt="Logo Carlos Antil"
+                >
+                <span>Carlos Antil</span>
+            </a>
+
+            <nav class="navigation" aria-label="Navegación principal">
+                <a href="../index.html#sobre-mi">Sobre mí</a>
+                <a href="../projects.html">Proyectos</a>
+
+                <a
+                    href="../assets/documents/carlos-antil-cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    CV
+                </a>
+
+                <a href="../index.html#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="project-detail">
+        <div class="container project-detail-container">
+            <div class="back-links">
+                <a href="../index.html" class="back-link">
+                    ← Volver a página principal
+                </a>
+
+                <a href="../projects.html" class="back-link">
+                    ← Ir a proyectos
+                </a>
+            </div>
+
+            <header class="project-hero">
+                <p class="section-label">Proyecto académico</p>
+                <h1>Predicción de la deserción estudiantil</h1>
+                    
+                <p class="project-introduction"></p>
+                    Análisis de datos educativos mediante técnicas de Machine Learning para
+                    predecir la graduación o deserción de estudiantes universitarios. El proyecto
+                    combina modelos supervisados, reducción de dimensionalidad y métodos de
+                    clustering para estudiar tanto la capacidad predictiva como la estructura
+                    interna de los datos.
+                </p>
+                <div class="project-meta">
+                    <span>Deep Learning</span>
+                    <span>Clasificación</span>
+                    <span>Python</span>
+                </div>
+            </header>
+
+
+            <section class="project-section">
+                <h2>Problema</h2>
+                 <p>
+                    La deserción universitaria representa un desafío relevante para estudiantes
+                    e instituciones, ya que puede estar asociada a factores académicos,
+                    demográficos y socioeconómicos. Identificar tempranamente patrones
+                    relacionados con el abandono puede contribuir al diseño de estrategias de
+                    acompañamiento y apoyo<sup><a href="#ref1">1</a></sup>.
+                </p>
+
+                <p>
+                    En este proyecto se aborda un problema de clasificación supervisada cuyo
+                    objetivo es predecir si un estudiante se graduará o abandonará sus estudios
+                    utilizando únicamente información disponible hasta el término del primer
+                    semestre.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Solución</h2>
+                <p>
+                    Se desarrolló un flujo completo de Machine Learning que incluyó preparación
+                    y normalización de los datos <sup><a href="#ref1">2</a></sup>, selección de variables y separación
+                    estratificada de los conjuntos de entrenamiento y prueba.
+                </p>
+
+                <p>
+                    Para construir los modelos se utilizaron variables disponibles al momento del
+                    ingreso del estudiante y durante su primer semestre. La información se organizó
+                    en cuatro grupos principales:
+                </p>
+
+                <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>Grupo de variables</th>
+                        <th>Ejemplos</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Antecedentes demográficos</td>
+                        <td>
+                            Edad, género, nacionalidad, estado civil y condición de estudiante
+                            internacional.
+                        </td>
+                        <td>
+                            Caracterizar el perfil personal del estudiante al momento del ingreso.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Condiciones socioeconómicas</td>
+                        <td>
+                            Becas, deudas, pago de aranceles, condición de desplazado y nivel
+                            educativo u ocupación de los padres.
+                        </td>
+                        <td>
+                            Representar factores económicos y familiares que pueden influir en
+                            la permanencia en la institución.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Antecedentes de ingreso</td>
+                        <td>
+                            Modalidad de admisión, prioridad de postulación, carrera, jornada y
+                            calificación previa.
+                        </td>
+                        <td>
+                            Describir las condiciones académicas y administrativas con las que
+                            el estudiante ingresa.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Desempeño académico inicial</td>
+                        <td>
+                            Asignaturas inscritas, aprobadas, evaluaciones, créditos y promedio
+                            de notas del primer semestre.
+                        </td>
+                        <td>
+                            Incorporar evidencia temprana sobre el avance académico del estudiante.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Contexto económico</td>
+                        <td>
+                            Tasa de desempleo, inflación y Producto Interno Bruto.
+                        </td>
+                        <td>
+                            Considerar las condiciones económicas existentes durante el periodo
+                            de ingreso.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Variable objetivo</td>
+                        <td>
+                            Graduación o deserción.
+                        </td>
+                        <td>
+                            Definir el resultado académico que los modelos buscan predecir.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="figure-caption">
+                <strong>Tabla 1.</strong> Resumen de los principales grupos de variables utilizados
+                para entrenar los modelos de Machine Learning.
+            </p>
+            <p>
+                Para evitar fuga de información, se eliminaron las variables asociadas al
+                segundo semestre, ya que contienen información posterior al momento en que se
+                desea realizar la predicción. Además, se excluyeron los registros de estudiantes
+                que aún se encontraban matriculados, formulando así un problema de clasificación
+                binaria entre graduación y deserción.
+            </p>
+
+                <p>
+                    Posteriormente, se compararon modelos de clasificación como Support Vector
+                    Machine lineal y con kernel RBF, Random Forest y una red neuronal
+                    feedforward. Además, se utilizaron PCA y t-SNE para visualizar la estructura
+                    de los datos, junto con K-means y DBSCAN para explorar agrupamientos
+                    naturales entre los estudiantes.
+                </p>
+            <p>
+            <h3>Exploración de los datos</h3>
+
+            <p>
+                Antes de entrenar los modelos, se aplicó el Análisis de Componentes Principales
+                (PCA) para proyectar los datos en dos dimensiones y explorar visualmente su
+                estructura. Esta técnica permitió evaluar si existían patrones o agrupamientos
+                naturales entre estudiantes graduados y desertores.
+            </p>
+
+            <figure class="project-figure">
+                <img
+                    src="../assets/images/educational-data-mining/pca.png"
+                    alt="Visualización de estudiantes mediante PCA"
+                    style="display: block; margin: 0 auto; max-width: 550px; width: 100%; height: auto;"
+                >
+            </figure>
+
+            <p class="figure-caption">
+                <strong>Figura 1.</strong> Proyección bidimensional de los estudiantes mediante
+                Análisis de Componentes Principales (PCA). Se observa una superposición
+                considerable entre las categorías <em>Graduate</em> y <em>Dropout</em>, lo que
+                evidencia la complejidad del problema de clasificación.
+            </p>
+            <p>
+            <h3>Exploración y análisis no supervisado</h3>
+
+            <p>
+                Como complemento al análisis supervisado, se aplicó el algoritmo K-means para
+                explorar la existencia de agrupamientos naturales entre los estudiantes sin
+                utilizar las etiquetas de graduación o deserción.
+            </p>
+
+            <figure class="project-figure">
+                <img
+                    src="../assets/images/educational-data-mining/kmeans.png"
+                    alt="Clusters obtenidos mediante K-means"
+                    style="display: block; margin: 0 auto; max-width: 550px; width: 100%; height: auto;"
+                >
+            </figure>
+
+            <p class="figure-caption">
+                <strong>Figura 2.</strong> Agrupamientos obtenidos mediante K-means utilizando
+                dos clusters. Aunque el algoritmo identifica grupos diferenciados, estos no
+                coinciden completamente con las categorías académicas de graduación y deserción.
+            </p>
+            
+            </section>
+
+            <section class="project-section">
+            <h2>Resultados y conclusión</h2>
+                <p>
+                    Los modelos se evaluaron considerando su desempeño durante el entrenamiento,
+                    la validación cruzada y la prueba sobre datos no utilizados para su ajuste.
+                    La siguiente tabla resume los resultados obtenidos:
+                </p>
+
+                <h3>Comparación de modelos supervisados</h3>
+
+                <table class="project-table">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Entrenamiento</th>
+                            <th>Validación</th>
+                            <th>Prueba</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>SVM lineal</td>
+                            <td>89,02 %</td>
+                            <td>88,12 %</td>
+                            <td><strong>90,08 %</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td>SVM con kernel RBF</td>
+                            <td>89,33 %</td>
+                            <td>88,12 %</td>
+                            <td>89,26 %</td>
+                        </tr>
+
+                        <tr>
+                            <td>Random Forest</td>
+                            <td>100,00 %</td>
+                            <td>88,60 %</td>
+                            <td>89,12 %</td>
+                        </tr>
+
+                        <tr>
+                            <td>Red neuronal</td>
+                            <td>91,53 %</td>
+                            <td>—</td>
+                            <td>88,57 %</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="figure-caption">
+                    <strong>Tabla 2.</strong> Comparación del desempeño de los modelos supervisados en
+                    entrenamiento, validación cruzada y conjunto de prueba.
+                </p>
+
+                <p>
+                    SVM lineal obtuvo el mejor desempeño sobre el conjunto de prueba, con una
+                    exactitud cercana al 90,1 %. Aunque las diferencias entre los modelos fueron
+                    pequeñas, este resultado muestra que un modelo relativamente sencillo fue
+                    capaz de generalizar mejor que alternativas más complejas.
+                </p>
+
+                <p>
+                    Random Forest alcanzó una exactitud perfecta durante el entrenamiento, pero
+                    su desempeño disminuyó en validación y prueba. Esta diferencia evidencia
+                    sobreajuste: el modelo aprendió con gran precisión los datos utilizados para
+                    entrenarlo, pero no logró mantener el mismo rendimiento frente a nuevas
+                    observaciones.
+                </p>
+
+                <p>
+                    La red neuronal tampoco superó a los modelos clásicos, lo que refuerza que la complejidad 
+                    del modelo no garantiza necesariamente una mejor capacidad de generalización.
+                </p>
+
+                <p>
+                    Desde una perspectiva educacional, los resultados muestran que la información
+                    disponible durante el ingreso y el primer semestre contiene señales relevantes
+                    para anticipar la trayectoria académica de un estudiante. Este tipo de modelos
+                    podría servir como herramienta de apoyo para identificar estudiantes en riesgo
+                    de deserción y orientar intervenciones tempranas por parte de las instituciones
+                    de educación superior, siempre considerando criterios éticos y el uso
+                    responsable de los datos.
+                </p>
+          
+            </section>
+
+            <section class="project-section">
+                <h2>Repositorio</h2>
+
+                    <p>
+                   Este proyecto nació como parte del curso Fundamentos de Machine Learning del Diplomado en Machine Learning de la Pontificia Universidad Católica de Chile (UC). 
+                   Posteriormente fue reorganizado y documentado para formar parte de este portafolio, incorporando una estructura orientada a facilitar la reproducción del análisis 
+                   y la comprensión del flujo completo de trabajo.
+                    </p>
+
+                    <h3>Contenido del repositorio</h3>
+
+                    <ul class="repository-list">
+                        <li>--</li>
+                        
+                    </ul>
+                    <a
+                        href="https://github.com/carlosantil/educational-data-mining"
+                        class="github-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver repositorio en GitHub
+                    </a>
+            </section>
+
+            <h3>Referencias</h3>
+
+                <ol>
+                <li id="ref1">
+                <a href="https://www.sciencedirect.com/science/article/pii/S003801212100094X?via%3Dihub" target="_blank">
+                The determinants of university dropout: A review of the socio-economic literature.
+                </a>
+                </li>
+
+                <li id="ref2">
+                <a href="https://archive.ics.uci.edu/dataset/697/predict+students+dropout+and+academic+success" target="_blank">
+                Predict Students Dropout and Academic Success. UCI Machine Learning Repository.
+                </a>
+                </li>
+                </ol>
+        </div>
+    </main>
+<footer class="footer" id="contacto">
+    <div class="container footer-content">
+        <p>&copy; 2026 Carlos Antil</p>
+
+        <div class="footer-links">
+            <!-- aquí los mismos enlaces que tienes en index -->
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
